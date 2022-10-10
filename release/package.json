@@ -1,7 +1,7 @@
 {
   "name": "release",
   "version": "1.0.0",
-  "description": "Create and populate a JIRA release from conventional commit conventions",
+  "description": "Create a JIRA release and assign fix version for all included issues.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1"
+    "@actions/github": "^5.1.1",
+    "jira-client": "^8.1.0",
+    "semver": "^7.3.8"
   }
 }

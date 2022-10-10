@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const { checkEnv, run } = require('./utils');
+const { checkEnv, run } = require('../utils');
 const { createJiraRelease } = require('./jira-release');
 
 const action = async () => {
