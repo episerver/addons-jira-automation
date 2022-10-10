@@ -35,4 +35,6 @@ jobs:
           version: ${{ steps.branchVersion.outputs.manifestSafeVersionString }}
 ```
 # Result:
-<Package name> <Version> (e.g.: EPiServer.GoogleAnalytics 3.0.0)
+E.g.: 
+EPiServer.GoogleAnalytics 3.0.0
+EPiServer.Forms 5.0.0
