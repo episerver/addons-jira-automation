@@ -34,3 +34,5 @@ jobs:
           jira-host: jira.sso.episerver.net
           version: ${{ steps.branchVersion.outputs.manifestSafeVersionString }}
 ```
+# Result:
+<Package name> <Version> (e.g.: EPiServer.GoogleAnalytics 3.0.0)
