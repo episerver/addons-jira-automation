@@ -29,8 +29,8 @@ jobs:
       - name: Create JIRA release
         uses: hungoptimizely/jira-automation/release@v1
         with:
-          jira-project: GA
-          jira-package: EPiServer.GoogleAnalytics
+          jira-project: <Project key, ex: GA, AFORM,...>
+          jira-package: <Package name, ex: EPiServer.GoogleAnalytics, EPiServer.Forms,...>
           jira-host: jira.sso.episerver.net
           version: ${{ steps.branchVersion.outputs.manifestSafeVersionString }}
 ```
