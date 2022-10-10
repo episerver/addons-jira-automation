@@ -1,4 +1,4 @@
-# jira-automation
+# Custom Git action to create JIRA release
 
 Gets the version number of a release branch such as release/1.2.3, then create JIRA release and update JIRA release note
 
