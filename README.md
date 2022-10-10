@@ -36,5 +36,7 @@ jobs:
 ```
 # Result:
 E.g.: 
+
 EPiServer.GoogleAnalytics 3.0.0
+
 EPiServer.Forms 5.0.0
