@@ -37,6 +37,6 @@ jobs:
 # Result:
 E.g.: 
 
-EPiServer.GoogleAnalytics 3.0.0
+EPiServer.GoogleAnalytics 1.2.3
 
-EPiServer.Forms 5.0.0
+EPiServer.Forms 1.2.3
