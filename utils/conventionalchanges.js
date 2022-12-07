@@ -95,9 +95,9 @@ const getConventionalCommits = async () => {
     }).on('error', (err) => {
       reject(err);
     }).pipe(through2.obj((chunk, enc, cb) => {
-      if (chunk.type != null) {
+      //if (chunk.type != null) {
         commits.push(chunk);
-      }
+      //}
       cb();
     }));
   });

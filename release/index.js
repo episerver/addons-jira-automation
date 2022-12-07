@@ -11,6 +11,7 @@ const action = async () => {
   const component = core.getInput('jira-component') || '';
   const package  = core.getInput('jira-package') || '';
   const version = core.getInput('version', { required: true });
+  const versionSuffix = core.getInput('versionSuffix') || '';
 
   await createJiraRelease({
     protocol,
@@ -18,7 +19,8 @@ const action = async () => {
     projectKey,
     component,
     version,
-    package
+    package,
+    versionSuffix
   });
 };
 

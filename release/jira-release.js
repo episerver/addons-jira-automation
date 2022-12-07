@@ -35,11 +35,12 @@ const getOrCreateRelease = async (client, { key, id }, name) => {
   });
 };
 
-const createUpdate = ({ id }) => ({
+const createUpdate = ({ id }, pkgVer) => ({
   update: {
     fixVersions: [
       { add: { id } },
     ],
+    customfield_10018: [{ set: pkgVer }]
   },
 });
 
@@ -49,7 +50,8 @@ const createJiraRelease = async ({
   projectKey,
   component,
   version,
-  package
+  package,
+  versionSuffix
 }) => {
   const client = new JiraClient({
     protocol,
@@ -72,13 +74,39 @@ const createJiraRelease = async ({
 
   const changes = await findJiraChanges(projectKey);
   const requests = [];
+  // Object.keys(changes).forEach((issueKey) => {
+  //   requests.push(
+  //     client.updateIssue(issueKey, createUpdate(release)).then(() => {
+  //       core.info(`Issue ${issueKey} was updated with fix version`);
+  //     }),
+  //   );
+  // });
+
   Object.keys(changes).forEach((issueKey) => {
-    requests.push(
-      client.updateIssue(issueKey, createUpdate(release)).then(() => {
-        core.info(`Issue ${issueKey} was updated with fix version`);
-      }),
-    );
+    const change = changes[issueKey];
+    requests.push(client.getIssue(issueKey,`customfield_10018, parent, summary, fixVersions, resolution, status`)
+      .then((issue) => {
+        //ignore sub tasks/issues, ignore issues have fixVersions
+        //core.info(JSON.stringify(issue));
+        if((issue.fields.parent === null || issue.fields.parent === undefined)
+          && issue.fields.fixVersions.length === 0){
+            //core.info(JSON.stringify(issue));
+            const update = createUpdate(release, `${package}.${version}${versionSuffix}`);
+            return client.updateIssue(issueKey, update).then(() => {
+              core.info(`Issue ${issueKey} was updated with a release note`);
+            });
+        }
+        // if (issue.fields[releaseNoteFieldId] === null) {
+        //   const update = createUpdate(change, releaseNoteFieldId);
+        //   return client.updateIssue(issueKey, update).then(() => {
+        //     core.info(`Issue ${issueKey} was updated with a release note`);
+        //   });
+        // }
+        // core.info(`Skip issue ${issueKey}. It already has a release note`);
+        return null;
+      }));
   });
+
   await Promise.all(requests);
 
   if (!release.released) {

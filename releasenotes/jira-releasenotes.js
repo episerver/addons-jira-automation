@@ -17,7 +17,6 @@ const findJiraChanges = async (projectKey) => {
       hash,
     } = commit;
     const content = `${scope} ${subject} ${body || ''} ${footer || ''}`;
-    core.info(content);
     new Set(content.match(issueIdRegEx)).forEach((issueKey) => {
       if (issues[issueKey]) {
         core.warning(`${issueKey} was referred by multiple commits. Last entry wins!`);

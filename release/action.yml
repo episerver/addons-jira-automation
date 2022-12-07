@@ -22,6 +22,9 @@ inputs:
   version:
     description: The semantic version number to create a release for
     required: true
+  versionSuffix: 
+    description: The version suffix of nuget package
+    required: false
 runs:
   using: 'node16'
   main: 'dist/index.js'
