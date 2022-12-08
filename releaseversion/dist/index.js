@@ -9757,11 +9757,11 @@ function run() {
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("This action is only meant to be run on create/push");
             return;
         }
-        const refType = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref_type;
-        if (refType !== "branch"){
-            _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("This action is only meant to be run on the creation of a new branch");
-            return;
-        }
+        // const refType = github.context.payload.ref_type;
+        // if (refType !== "branch"){
+        //     core.setFailed("This action is only meant to be run on the creation of a new branch");
+        //     return;
+        // }
 
         // Grab the branch version
         const branchName = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;

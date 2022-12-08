@@ -22,11 +22,11 @@ function run() {
             core.setFailed("This action is only meant to be run on create/push");
             return;
         }
-        const refType = github.context.payload.ref_type;
-        if (refType !== "branch"){
-            core.setFailed("This action is only meant to be run on the creation of a new branch");
-            return;
-        }
+        // const refType = github.context.payload.ref_type;
+        // if (refType !== "branch"){
+        //     core.setFailed("This action is only meant to be run on the creation of a new branch");
+        //     return;
+        // }
 
         // Grab the branch version
         const branchName = github.context.payload.ref;
