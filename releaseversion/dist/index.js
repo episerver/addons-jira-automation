@@ -9776,6 +9776,7 @@ function run() {
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("manifestSafeVersionString", version.manifestSafeVersionString);
         }
         else{
+            _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(branchName);
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("the branch name does not match the patter 'release/nn.nn.nn'");
         }
     } catch (error) {

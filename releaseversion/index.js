@@ -41,6 +41,7 @@ function run() {
             core.setOutput("manifestSafeVersionString", version.manifestSafeVersionString);
         }
         else{
+            core.info(branchName);
             core.setFailed("the branch name does not match the patter 'release/nn.nn.nn'");
         }
     } catch (error) {
