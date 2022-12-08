@@ -30,7 +30,7 @@ function run() {
 
         // Grab the branch version
         const branchName = github.context.payload.ref;
-        const regex = new RegExp(/^release\/\d{1,2}\.\d{1,2}\.\d{1,2}$/);
+        const regex = new RegExp(/release\/\d{1,2}\.\d{1,2}\.\d{1,2}$/);
         if (branchName.match(regex)){
             const versionString = branchName.split('/')[1];
             const version = getVersion(versionString);
