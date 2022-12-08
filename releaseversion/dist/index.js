@@ -9766,8 +9766,9 @@ function run() {
         // Grab the branch version
         const branchName = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
         const regex = new RegExp(/release\/\d{1,2}\.\d{1,2}\.\d{1,2}$/);
-        if (branchName.match(regex)){
-            const versionString = branchName.split('/')[1];
+        let found = branchName.match(regex);
+        if (found){
+            const versionString = found[0].split('/')[1];
             const version = getVersion(versionString);
             console.log("version: ", version);
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("major", version.major);
