@@ -9753,7 +9753,7 @@ const getVersion = (version) => {
 function run() {
     try {
         const event = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.eventName;
-        if (event !== "create" || event !== "push"){
+        if (event !== "create" && event !== "push"){
             _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("This action is only meant to be run on create/push");
             return;
         }

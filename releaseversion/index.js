@@ -18,7 +18,7 @@ const getVersion = (version) => {
 function run() {
     try {
         const event = github.context.eventName;
-        if (event !== "create" || event !== "push"){
+        if (event !== "create" && event !== "push"){
             core.setFailed("This action is only meant to be run on create/push");
             return;
         }
