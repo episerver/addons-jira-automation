@@ -20,7 +20,7 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-# Custom Git action to create JIRA release
+# Git action template to create JIRA release
 
 Gets the version number of a release branch such as release/1.2.3, then create JIRA release and update JIRA release note
 
