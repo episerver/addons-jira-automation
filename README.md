@@ -1,4 +1,4 @@
-# Build & Release
+# Build & Release action
 
 
 Install vercel/ncc by running this command in your terminal.
