@@ -1,3 +1,19 @@
+# Build & Release
+
+
+Install vercel/ncc by running this command in your terminal.
+
+npm i -g @vercel/ncc
+
+Compile your index.js file.
+
+ncc build index.js --license licenses.txt
+
+git add action.yml dist/index.js node_modules/*
+git commit -m "Use vercel/ncc"
+git tag -a -m "My first action release" v1.1
+git push --follow-tags
+
 # Custom Git action to create JIRA release
 
 Gets the version number of a release branch such as release/1.2.3, then create JIRA release and update JIRA release note
