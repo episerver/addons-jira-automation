@@ -104,7 +104,13 @@ const createJiraRelease = async ({
         // }
         // core.info(`Skip issue ${issueKey}. It already has a release note`);
         return null;
-      }));
+      })
+      .catch((err) => { 
+        core.warning(`Issue ${issueKey} occurs error when updating release note`)
+        
+        return null;
+      })
+    );
   });
 
   await Promise.all(requests);

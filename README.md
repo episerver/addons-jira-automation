@@ -45,11 +45,11 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Get release version
-        uses: hungoptimizely/jira-automation/releaseversion@v1
+        uses: episerver/addons-addons-jira-automation/releaseversion@v1
         id: branchVersion
 
       - name: Create JIRA release
-        uses: hungoptimizely/jira-automation/release@v1
+        uses: episerver/addons-addons-jira-automation/release@v1
         with:
           jira-project: <Project key, e.g.: GA, AFORM,...>
           jira-package: <Package name, e.g.: EPiServer.GoogleAnalytics, EPiServer.Forms,...>
